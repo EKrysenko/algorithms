@@ -17,10 +17,25 @@ class TwoSumTest {
         );
     }
 
+    @ParameterizedTest(name = "Map pre-check case {index}, target = {1}")
+    @MethodSource("argumentsStream")
+    void twoSumMapPreCheck(int[] nums, int target, int[] expected) {
+        int[] actual = TwoSum.twoSumMapPreCheck(nums, target);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @ParameterizedTest(name = "Map case {index}, target = {1}")
+    @MethodSource("argumentsStream")
+    void twoSumMap(int[] nums, int target, int[] expected) {
+        int[] actual = TwoSum.twoSumMap(nums, target);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
     @ParameterizedTest(name = "BrutForce case {index}, target = {1}")
     @MethodSource("argumentsStream")
     void twoSumBrutForce(int[] nums, int target, int[] expected) {
         int[] actual = TwoSum.twoSumBrutForce(nums, target);
         Assertions.assertArrayEquals(expected, actual);
     }
+
 }
