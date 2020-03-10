@@ -1,7 +1,7 @@
 package topics.string;
 
-public class MaxSuffix {
-    public static String findSuffixHorizontalScan(String[] strs){
+public class MaxPrefix {
+    public static String findPrefixHorizontalScan(String[] strs) {
         if (strs.length == 0) return "";
         String suffix = strs[0];
         for (int i = 1; i < strs.length; i++) {
@@ -18,6 +18,20 @@ public class MaxSuffix {
                 if (j >= strs[i].length()) {
                     suffix = strs[i];
                     break;
+                }
+            }
+        }
+        return suffix;
+    }
+
+    public static String findPrefixVerticalScan(String[] strs) {
+        if (strs.length == 0) return "";
+        String suffix = strs[0];
+
+        for (int i = 0; i < suffix.length(); i++) {
+            for (String str : strs) {
+                if (str.length() < i + 1 || !str.startsWith(suffix.substring(0, i + 1))) {
+                    return suffix.substring(0, i);
                 }
             }
         }

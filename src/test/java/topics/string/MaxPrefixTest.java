@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class MaxSuffixTest {
+class MaxPrefixTest {
 
     private static Stream<Arguments> argumentsStream(){
         return Stream.of(
@@ -16,13 +16,21 @@ class MaxSuffixTest {
                 Arguments.of("", new String[]{"flower","flow",""}),
                 Arguments.of("", new String[]{"","flow","fkfk"}),
                 Arguments.of("", new String[]{"flower","flow","k"}),
+                Arguments.of("", new String[]{"c","acc","ccc"}),
                 Arguments.of("f", new String[]{"frower","flow","flight"})
         );
     }
-    @ParameterizedTest
+    @ParameterizedTest(name = "MaxSuffix horizontal scan, case {index}")
     @MethodSource("argumentsStream")
-    void findSuffixBF(String expected, String[] strs) {
-        String actual = MaxSuffix.findSuffixHorizontalScan(strs);
+    void findSuffixHS(String expected, String[] strs) {
+        String actual = MaxPrefix.findPrefixHorizontalScan(strs);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest(name = "MaxSuffix vertical scan, case {index}")
+    @MethodSource("argumentsStream")
+    void findSuffixVS(String expected, String[] strs) {
+        String actual = MaxPrefix.findPrefixVerticalScan(strs);
         Assertions.assertEquals(expected, actual);
     }
 }
