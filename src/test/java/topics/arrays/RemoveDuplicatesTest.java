@@ -18,7 +18,7 @@ class RemoveDuplicatesTest {
         );
     }
 
-    @ParameterizedTest(name = "Remove duplicates brut force case {index}, target = {1}")
+    @ParameterizedTest(name = "Remove duplicates brut force case {index}, target = {2}")
     @MethodSource("argumentsStream")
     void removeDuplicatesBrutForce(int[] nums, int[] expectedArray, int expectedLength) {
         int actualLength = RemoveDuplicates.removeDuplicatesBrutForce(nums);
