@@ -25,4 +25,27 @@ public class CountAndSay {
         }
         return result;
     }
+
+    public static String recursive(int n) {
+        if (n == 0) return "";
+        if (n == 1) return "1";
+
+        StringBuilder sb = new StringBuilder();
+
+        String previous = brutForce(n - 1);
+        int count = 1;
+
+        for (int i = 0; i < previous.length(); i++) {
+            if (i == previous.length() - 1) {
+                sb.append(count).append(previous.charAt(i));
+            } else if (previous.charAt(i) == previous.charAt(i + 1)) {
+                count++;
+            } else {
+                sb.append(count).append(previous.charAt(i));
+                count = 1;
+            }
+        }
+
+        return sb.toString();
+    }
 }

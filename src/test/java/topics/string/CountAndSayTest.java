@@ -22,7 +22,14 @@ class CountAndSayTest {
 
     @ParameterizedTest(name = "Count and say, expected {1}")
     @MethodSource("argumentsStream")
-    void brutForce(int n, String expected) {
+    void brutForceTest(int n, String expected) {
+        String actual = CountAndSay.brutForce(n);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest(name = "Count and say recursive, expected {1}")
+    @MethodSource("argumentsStream")
+    void recursiveTest(int n, String expected) {
         String actual = CountAndSay.brutForce(n);
         Assertions.assertEquals(expected, actual);
     }
