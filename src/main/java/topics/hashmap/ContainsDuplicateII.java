@@ -29,19 +29,18 @@ public class ContainsDuplicateII {
         if (nums.length == 0) return false;
         int[] clone = nums.clone();
         Arrays.sort(clone);
+        int currentPosition = -1;
 
-        for (int i = 0, currentPosition = -1; i < clone.length - 1; i++) {
+        for (int i = 0; i < clone.length - 1; i++) {
             if (clone[i] == clone[i + 1]) {
                 for (int j = 0; j < nums.length; j++) {
                     if (nums[j] == clone[i]) {
-                        if (currentPosition == -1) {
-                            currentPosition = j;
-                        } else {
+                        if (currentPosition != -1) {
                             if (j - currentPosition <= k) {
                                 return true;
                             }
-                            currentPosition = j;
                         }
+                        currentPosition = j;
                     }
                 }
                 currentPosition = -1;
