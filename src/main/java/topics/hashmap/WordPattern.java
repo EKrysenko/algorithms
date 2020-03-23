@@ -1,9 +1,12 @@
 package topics.hashmap;
 
+import javafx.util.Pair;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class WordPattern {
     public static boolean mapSolution(String pattern, String str) {
