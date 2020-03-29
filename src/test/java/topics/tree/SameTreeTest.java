@@ -12,24 +12,24 @@ class SameTreeTest {
     private static Stream<Arguments> argumentsStream() {
         return Stream.of(
                 Arguments.of(true,
-                        new SameTree.TreeNode(2, null, new SameTree.TreeNode(3)),
-                        new SameTree.TreeNode(2, null, new SameTree.TreeNode(3))),
+                        new TreeNode(2, null, new TreeNode(3)),
+                        new TreeNode(2, null, new TreeNode(3))),
                 Arguments.of(false,
-                        new SameTree.TreeNode(2, null, new SameTree.TreeNode(3)),
-                        new SameTree.TreeNode(2, new SameTree.TreeNode(3), null)),
+                        new TreeNode(2, null, new TreeNode(3)),
+                        new TreeNode(2, new TreeNode(3), null)),
                 Arguments.of(false,
-                        new SameTree.TreeNode(2, null, new SameTree.TreeNode(3)),
-                        new SameTree.TreeNode(2, null, new SameTree.TreeNode(4))),
+                        new TreeNode(2, null, new TreeNode(3)),
+                        new TreeNode(2, null, new TreeNode(4))),
                 Arguments.of(false,
-                        new SameTree.TreeNode(2, null, new SameTree.TreeNode(4)),
-                        new SameTree.TreeNode(2, new SameTree.TreeNode(3), new SameTree.TreeNode(4)))
+                        new TreeNode(2, null, new TreeNode(4)),
+                        new TreeNode(2, new TreeNode(3), new TreeNode(4)))
 
         );
     }
 
     @ParameterizedTest
     @MethodSource("argumentsStream")
-    void isSameTest(boolean expected, SameTree.TreeNode p, SameTree.TreeNode q) {
+    void isSameTest(boolean expected, TreeNode p, TreeNode q) {
         Assertions.assertEquals(expected, SameTree.isSame(p, q));
     }
 }
