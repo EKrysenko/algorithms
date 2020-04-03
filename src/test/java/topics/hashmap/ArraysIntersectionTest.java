@@ -11,7 +11,7 @@ class ArraysIntersectionTest {
 
     private static Stream<Arguments> argumentsStream() {
         return Stream.of(
-                Arguments.of(new int[]{2, 3}, new int[]{1, 2, 3, 4}, new int[]{7, 3, 2, 5}),
+                Arguments.of(new int[]{2, 3}, new int[]{1, 2, 3, 4}, new int[]{7, 2, 3, 5}),
                 Arguments.of(new int[]{-3, 10}, new int[]{5, 4, 10, -3}, new int[]{-3, 10, 8}),
                 Arguments.of(new int[]{}, new int[]{1, 2, 3, 4}, new int[]{5, 6, 7, 8}),
                 Arguments.of(new int[]{}, new int[]{1, 1, 1}, new int[]{0, 0, 0}),

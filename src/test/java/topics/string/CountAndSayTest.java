@@ -30,7 +30,7 @@ class CountAndSayTest {
     @ParameterizedTest(name = "Count and say recursive, expected {1}")
     @MethodSource("argumentsStream")
     void recursiveTest(int n, String expected) {
-        String actual = CountAndSay.brutForce(n);
+        String actual = CountAndSay.recursive(n);
         Assertions.assertEquals(expected, actual);
     }
 }
