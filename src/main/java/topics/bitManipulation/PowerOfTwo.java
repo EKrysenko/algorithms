@@ -5,7 +5,10 @@ public class PowerOfTwo {
         int start = 0, sum = 0, end = 31;
 
         while (start <= end) {
-            if (start == end) sum += (n >> start) & 1;
+            if (start == end) {
+                sum += (n >> start) & 1;
+                break;
+            }
             sum += (n >> start) & 1;
             sum += (n >> end) & 1;
             if (sum > 1) break;
