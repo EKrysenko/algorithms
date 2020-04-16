@@ -14,7 +14,7 @@ class MinimumDepthTest {
                 Arguments.of(0, null),
                 Arguments.of(1,
                         new TreeNode(1)),
-                Arguments.of(2,
+                Arguments.of(1,
                         new TreeNode(1,
                                 new TreeNode(2),
                                 null)),
@@ -35,7 +35,7 @@ class MinimumDepthTest {
 
     @ParameterizedTest
     @MethodSource("argumentsStream")
-    void isSymmetricTest(int expected, TreeNode root) {
+    void minimumDepthTest(int expected, TreeNode root) {
         Assertions.assertEquals(expected, MinimumDepth.findMinimum(root));
     }
 }
